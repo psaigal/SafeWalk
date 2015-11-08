@@ -1,3 +1,5 @@
+require 'users_helper'
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -5,6 +7,8 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    send_initial_text
+    return "hi"
   end
 
   # GET /users/1
