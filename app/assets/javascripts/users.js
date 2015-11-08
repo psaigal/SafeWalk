@@ -12,20 +12,20 @@ var arrived = function(){
 };
 
 var position_id, target, options;
-var count = 0;
 
 function success(pos) {
   var crd = pos.coords;
 
-  count = count + 1;
+  console.log("Latitude = " + crd.latitude);
+  console.log("Longitude = " + crd.longitude);
 
-  $("span#cur_lat").text(crd.latitude);
-  $("span#cur_long").text(crd.longitude);
+  // $("span#cur_lat").text(crd.latitude);
+  // $("span#cur_long").text(crd.longitude);
 
   if (target.latitude === crd.latitude && target.longitude === crd.longitude) {
     console.log('Congratulations, you reached the target');
-    //arrived();
-    //navigator.geolocation.clearWatch(position_id);
+    arrived();
+    navigator.geolocation.clearWatch(position_id);
   }
 }
 
@@ -44,5 +44,4 @@ options = {
   maximumAge: 0
 };
 
-//position_id = navigator.geolocation.getCurrentPosition(success, error, options);
-//setInterval(position_id, 1000);
+position_id = navigator.geolocation.watchPosition(success, error, options);
