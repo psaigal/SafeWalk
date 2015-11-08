@@ -6,16 +6,61 @@
     <header id="top" class="header">
         <div class="text-vertical-center">
             <h1>SafeWalk</h1>
-            <h3 id='h3'>Peace of mind for your loved ones</h3>
-            <a href="#" class="btn btn-default btn-circle"><i class="fa fa-user"></i></a>
+            <h3 id='h3' class="peace">Peace of mind for your loved ones</h3>
+
+            <br>
+            <div class="col-s-8">
+                        <select id="select-default2" class = "control">
+                            <option>Select your number</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+            <div class="form2" id="tf-sign" style="display:none">
+                <div class="top-row">
+                    <ul class="tab-group">
+                    <li class="tab active"><a href="#signup" style='width:100%'>Add a contact</a></li>
+                    </ul>
+                        <div id='field1' class="field-wrap">
+                          <label>
+                            Name<span class="req">*</span>
+                          </label>
+                          <input type="text" name='firstName' id='firstName' required autocomplete="off" />
+                        </div>
+                        <div id='field2' class="field-wrap">
+                          <label>
+                            Phone Number<span class="req">*</span>
+                          </label>
+                          <input name ='lastName' id='lastName' type="text"required autocomplete="off"/>
+                        </div>
+
+                    </div>
+                    <div style= 'display: inline'>
+                    <button type="submit" id='cancel' class="button button-block1"/>Cancel</button>
+                    <button type="submit" id='add' class="button button-block1" />Add</button>
+
+                    </div>
+
+            </div>
+            <br>
             <br>
             <a  href="#about" class="btn btn-dark btn-lg">Track me!</a>
+            <br>
+            <br>
+            <div class="col-s-12 text-vertical-center" id='plusButton'>
+                <p class="plus">
+                            <strong>+</strong>
+                </p>
+            </div>
 
 
         </div>
+
     </header>
      <!-- Sign up/ Sign in form -->
-    <div class="form" id="tf-sign" >
+    <div class="form" id="tf-sign" style="display:none">
         <a class="boxclose" id="boxclose"></a>
         <ul class="tab-group">
             <li class="tab active"><a href="#signup">Sign Up</a></li>
