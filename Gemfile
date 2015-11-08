@@ -34,12 +34,9 @@ gem 'puma'
 # gem 'capistrano-rails', group: :development
 gem 'twilio-ruby'
 gem 'envyable'
-<<<<<<< HEAD
 gem 'rails_12factor', group: :production
 gem 'puma'
 
-=======
->>>>>>> d3b772af9fa83d2fde3ce189093f9b1350bf7f43
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

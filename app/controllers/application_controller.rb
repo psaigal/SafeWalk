@@ -5,9 +5,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-<<<<<<< HEAD
- 
-=======
+
   helper_method :current_user
 
   def authenticate
@@ -20,7 +18,6 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
->>>>>>> d3b772af9fa83d2fde3ce189093f9b1350bf7f43
   def send_initial_text
   	account_sid = ENV['TWILIO_ACCOUNT_SID']
 		auth_token = ENV['TWILIO_AUTH_TOKEN']
@@ -28,22 +25,22 @@ class ApplicationController < ActionController::Base
 		@client = Twilio::REST::Client.new account_sid, auth_token
 		@client.account.messages.create({
 		  :from => from_number,
-		  :to =>'+14085134453',
+		  :to => User.first.contacts.first.phone_number,
 		  :body => 'is using SafeWalk and wants to notify you that they are on their way home.'
 		})
 	end
 
-	# need to update this with js confirmation of location being met
-	# 	def send_destination_text
-	# 	 #js logic for reaching home
-	# 				@client.account.messages.create({
-	# 	  :from => from_number,
-	# 	  :to => contact_number,#needs to be defined from db
-	# 	  :body => ' has arrived home safely.'
-	# 	})
-	# 	# end
+
+  def send_destination_text
+	 if 
+		@client.account.messages.create({
+	  :from => from_number,
+	  :to => User.first.contacts.first.phone_number,
+	  :body => ' has arrived home safely.'
+	})
 	# end
-<<<<<<< HEAD
+	end
+
 
   helper_method :current_user
 
@@ -56,6 +53,4 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
-=======
->>>>>>> d3b772af9fa83d2fde3ce189093f9b1350bf7f43
 end
