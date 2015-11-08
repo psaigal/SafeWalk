@@ -1,4 +1,3 @@
-
 // var user_lat;
 // var user_lng;
 

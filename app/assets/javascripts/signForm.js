@@ -27,7 +27,7 @@ var textShift = function() {
       }
 
   });
-}
+};
 
 var tabShift = function() {
   $('.tab a').on('click', function (e) {
@@ -44,9 +44,26 @@ var tabShift = function() {
     $(target).fadeIn(600);
 
   });
-}
+};
+
+var signUpPopUp = function(){
+
+  $("#tf-sign").hide();
+
+  $("#menu-toggle").on('click', function(e){
+    e.preventDefault();
+
+    $(".form").toggle();
+
+    $('html, body').animate({
+         scrollTop: $(".form").offset().top
+     }, 500);
+    $("header").css("opacity", "0.3");
+  });
+};
 
 $( document ).ready(function() {
   textShift();
   tabShift();
+  signUpPopUp();
 });
