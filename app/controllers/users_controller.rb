@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    send_initial_text
+    # send_initial_text
     return "hi"
   end
 
