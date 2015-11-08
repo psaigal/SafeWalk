@@ -1,32 +1,3 @@
-// var user_lat;
-// var user_lng;
-
-// function gmap_success(data){
-//   gmap_data = data;
-//   user_lat = gmap_data.results[0].geometry.location.lat;
-//   user_lng = gmap_data.results[0].geometry.location.lng;
-//   $("span.ulat").text(user_lat);
-//   $("span.ulng").text(user_lng);
-// }
-
-// var gmap_data;
-
-// var address = encodeURIComponent("633 Folsom Street San Francisco CA");
-
-// var gmak = "AIzaSyBdHyoQX5-zgXNTNdlImtj62mmB9CzAwwY";
-
-// var gmurl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + gmak;
-
-
-// $.ajax({
-//   dataType: "json",
-//   url: gmurl,
-//   success: gmap_success,
-//   error: function(){
-//     console.warn("ERROR: " + error_msg);
-//   }
-// });
-
 var arrived = function(){
   $.ajax({url: "/user/arrived",
       method: "post",

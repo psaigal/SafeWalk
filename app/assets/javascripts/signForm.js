@@ -62,8 +62,80 @@ var signUpPopUp = function(){
   });
 };
 
+var inputAddress = function(){
+
+  $("#input-address").on('click', function(e){
+    e.preventDefault();
+
+    var address; // get value from textbox on submit
+
+    getCoords(address);
+  });
+};
+
+
+
+var getCoords = function(address){
+
+  var user_lat;
+  var user_lng;
+
+  function gmap_success(data){
+    gmap_data = data;
+    user_lat = gmap_data.results[0].geometry.location.lat;
+    user_lng = gmap_data.results[0].geometry.location.lng;
+    form_lat.value = user_lat;
+    form_lng.value = user_lng;
+  }
+
+  var gmap_data;
+
+  var address = encodeURIComponent(address);
+
+  var gmak = "AIzaSyBdHyoQX5-zgXNTNdlImtj62mmB9CzAwwY";
+
+  var gmurl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + gmak;
+
+
+  $.ajax({
+    dataType: "json",
+    url: gmurl,
+    success: gmap_success,
+    error: function(){
+      console.warn("ERROR: " + error_msg);
+    }
+  });
+};
+
+var alreadyHome = function(){
+
+  $("#already_home").on('click', function(){
+    var position_id, target, options;
+
+    function success(pos) {
+      var crd = pos.coords;
+
+      form_lat.value=crd.latitude;
+      form_lng.value=crd.longitude;
+    }
+
+    function error(err) {
+      console.warn('ERROR(' + err.code + '): ' + err.message);
+    }
+
+    options = {
+      enableHighAccuracy: true,
+      timeout: 1000,
+      maximumAge: 0
+    };
+  });
+};
+
+
 $( document ).ready(function() {
   textShift();
   tabShift();
   signUpPopUp();
+  inputAddress();
+  alreadyHome();
 });
