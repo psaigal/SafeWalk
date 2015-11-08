@@ -31,15 +31,15 @@ class ApplicationController < ActionController::Base
 	end
 
 
-  def send_destination_text
-	 if 
-		@client.account.messages.create({
-	  :from => from_number,
-	  :to => User.first.contacts.first.phone_number,
-	  :body => ' has arrived home safely.'
-	})
+ #  def send_destination_text
+ #  	 if 
+ #  		@client.account.messages.create({
+ #  	  :from => from_number,
+ #  	  :to => User.first.contacts.first.phone_number,
+ #  	  :body => ' has arrived home safely.'
+ #  	})
+	#  end
 	# end
-	end
 
 
   helper_method :current_user
