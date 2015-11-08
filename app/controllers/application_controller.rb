@@ -29,4 +29,15 @@ class ApplicationController < ActionController::Base
 	# 	# end
 	# end
 
+  helper_method :current_user
+
+  def authenticate
+    redirect_to login_url, alert: 'Please log in first' if current_user.nil?
+  end
+
+  private
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
 end
