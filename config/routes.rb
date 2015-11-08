@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   resources :contacts
   resources :sessions
-  resources :users
+  resources :users do
+    :arrived
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
