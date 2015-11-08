@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     send_initial_text
-    return "hi"
   end
 
   # GET /users/1
