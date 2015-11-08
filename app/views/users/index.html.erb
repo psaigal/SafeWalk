@@ -1,35 +1,81 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>Email</th>
-      <th>Password digest</th>
-      <th>Longitude</th>
-      <th>Latitude</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class='signIn'><class="fa fa-bars"> Sign Up</a>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.username %></td>
-        <td><%= user.email %></td>
-        <td><%= user.password_digest %></td>
-        <td><%= user.longitude %></td>
-        <td><%= user.latitude %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <h1>SafeWalk</h1>
+            <h3 id='h3'>Peace of mind for your loved ones</h3>
+            <a href="#" class="btn btn-default btn-circle"><i class="fa fa-user"></i></a>
+            <br>
+            <a  href="#about" class="btn btn-dark btn-lg">Track me!</a>
 
-<br>
 
-<%= link_to 'New User', new_user_path %>
+        </div>
+    </header>
+     <!-- Sign up/ Sign in form -->
+    <div class="form" id="tf-sign" >
+        <a class="boxclose" id="boxclose"></a>
+        <ul class="tab-group">
+            <li class="tab active"><a href="#signup">Sign Up</a></li>
+            <li class="tab"><a href="#login">Log In</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="signup">
+                <h1 class="forfree">Sign Up for Free</h1>
+                <form  id ='signupForm'action="/" method="post">
+                    <div class="top-row">
+                        <div id='field1' class="field-wrap">
+                          <label>
+                            Name<span class="req">*</span>
+                          </label>
+                          <input type="text" name='firstName' id='firstName' required autocomplete="off" />
+                        </div>
+                        <div id='field2' class="field-wrap">
+                          <label>
+                            Location<span class="req">*</span>
+                          </label>
+                          <input name ='lastName' id='lastName' type="text"required autocomplete="off"/>
+                        </div>
+                    </div>
+                    <div id='field3' class="field-wrap">
+                        <label>
+                          Email Address<span class="req">*</span>
+                        </label>
+                        <input type="email" name ="email" id= "email" required autocomplete="off"/>
+                    </div>
+                    <div  id='field4' class="field-wrap">
+                        <label>
+                          Set A Password<span class="req">*</span>
+                        </label>
+                        <input type="password" name="password" id="password" required autocomplete="off"/>
+                    </div>
+                    <button type="submit" id='signUp' class="button button-block"/>Get Started</button>
+                </form>
+            </div>
+            <div id="login">
+                <h1>Welcome Back!</h1>
+                <form  id='loginForm'action="/" method="post">
+                    <div id='field5' class="field-wrap">
+                        <label>
+                          Email Address<span class="req">*</span>
+                        </label>
+                        <input type="email" name ="email2" id="email2" required autocomplete="off"/>
+                    </div>
+                    <div id='field6' class="field-wrap">
+                        <label>
+                          Password<span class="req">*</span>
+                        </label>
+                        <input type="password" name="password2" id="password2" required autocomplete="off"/>
+                    </div>
+                    <p class="forgot"><a href="#">Forgot Password?</a></p>
+                    <button id ='logIn' class="button button-block"/>Log In</button>
+                </form>
+            </div> <!-- div login  -->
+        </div><!-- tab-content -->
+    </div> <!-- /form -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="signform.js"></script>
+ -->
