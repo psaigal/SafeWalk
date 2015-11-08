@@ -43,6 +43,7 @@ class ApplicationController < ActionController::Base
   	  :to => User.first.contacts.first.phone_number,
   	  :body => ' has arrived home safely.'
   	})
+      return "You have notified your loved ones"
     end
 	end
 
